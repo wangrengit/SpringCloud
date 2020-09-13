@@ -1,0 +1,24 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: master #分支名字
+      name: config #配置文件名称
+      profile: dev #读取后缀名称 通过上面三个属性就会得到 config-dev.yml,再加上uri结果就是：http://localhost:3344/config-dev.yml
+      uri: http://localhost:3344 #配置中心地址
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+#暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

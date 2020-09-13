@@ -24,6 +24,7 @@
       <module>cloud-consumer-hystrix-dashboard9001</module>
       <module>cloud-gateway-gateway9527</module>
       <module>cloud-config-center-3344</module>
+      <module>cloud-config-client-3355</module>
   </modules>
   <packaging>pom</packaging>
   <name>Maven</name>
@@ -56,6 +57,9 @@
     <openfeign-version>2.2.2.RELEASE</openfeign-version>
     <hystrix-version>2.2.2.RELEASE</hystrix-version>
     <gateway-version>2.2.2.RELEASE</gateway-version>
+    <config-version>2.2.1.RELEASE</config-version>
+    <config-client-version>2.2.1.RELEASE</config-client-version>
+
   </properties>
 
   <!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupid和version -->
@@ -139,6 +143,16 @@
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-gateway</artifactId>
         <version>${gateway-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-config-server</artifactId>
+        <version>${config-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-config</artifactId>
+        <version>${config-client-version}</version>
       </dependency>
     </dependencies>
 
