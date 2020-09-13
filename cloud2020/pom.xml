@@ -25,6 +25,7 @@
       <module>cloud-gateway-gateway9527</module>
       <module>cloud-config-center-3344</module>
       <module>cloud-config-client-3355</module>
+      <module>cloud-config-client-3366</module>
   </modules>
   <packaging>pom</packaging>
   <name>Maven</name>
@@ -59,6 +60,7 @@
     <gateway-version>2.2.2.RELEASE</gateway-version>
     <config-version>2.2.1.RELEASE</config-version>
     <config-client-version>2.2.1.RELEASE</config-client-version>
+    <bus-version>2.2.1.RELEASE</bus-version>
 
   </properties>
 
@@ -153,6 +155,11 @@
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-config</artifactId>
         <version>${config-client-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        <version>${bus-version}</version>
       </dependency>
     </dependencies>
 

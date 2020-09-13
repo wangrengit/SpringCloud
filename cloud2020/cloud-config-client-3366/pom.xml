@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-config-center-3344</artifactId>
+    <artifactId>cloud-config-client-3366</artifactId>
 
     <dependencies>
         <!--bus -->
@@ -18,13 +18,13 @@
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
             <version>2.2.1.RELEASE</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-server -->
-        <!-- config -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config -->
+        <!-- config client-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-            <version>2.2.1.RELEASE</version>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+
         <!-- eureka client-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
