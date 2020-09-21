@@ -26,6 +26,13 @@
       <module>cloud-config-center-3344</module>
       <module>cloud-config-client-3355</module>
       <module>cloud-config-client-3366</module>
+      <module>cloud-stream-rabbitmq-provider8801</module>
+    <module>cloud-stream-rabbitmq-consumer8802</module>
+    <module>cloud-stream-rabbitmq-consumer8803</module>
+    <module>cloudalibaba-provider-payment9001</module>
+      <module>cloudalibaba-provider-payment9002</module>
+      <module>cloudalibaba-consumer-nacos-order83</module>
+      <module>cloudalibaba-config-nacos-client3377</module>
   </modules>
   <packaging>pom</packaging>
   <name>Maven</name>
@@ -61,6 +68,10 @@
     <config-version>2.2.1.RELEASE</config-version>
     <config-client-version>2.2.1.RELEASE</config-client-version>
     <bus-version>2.2.1.RELEASE</bus-version>
+    <stream-rabbit-version>3.0.3.RELEASE</stream-rabbit-version>
+    <zipkin-version>2.2.2.RELEASE</zipkin-version>
+    <nacos-version>2.1.0.RELEASE</nacos-version>
+    <nacos-config-version>2.1.0.RELEASE</nacos-config-version>
 
   </properties>
 
@@ -161,6 +172,31 @@
         <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         <version>${bus-version}</version>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-stream-rabbit -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+        <version>${stream-rabbit-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-zipkin</artifactId>
+        <version>${zipkin-version}</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-discovery -->
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        <version>${nacos-version}</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-config -->
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        <version>${nacos-config-version}</version>
+      </dependency>
+
+
     </dependencies>
 
   </dependencyManagement>

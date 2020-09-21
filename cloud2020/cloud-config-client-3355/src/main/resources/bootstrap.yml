@@ -11,7 +11,7 @@ spring:
       profile: dev #读取后缀名称 通过上面三个属性就会得到 config-dev.yml,再加上uri结果就是：http://localhost:3344/config-dev.yml
       uri: http://localhost:3344 #配置中心地址
   rabbitmq:
-    host: 192.168.0.111
+    host: 192.168.31.111
     port: 5672
     username: guest
     password: guest
