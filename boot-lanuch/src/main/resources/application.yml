@@ -1,0 +1,10 @@
+server:
+  port: 8888
+
+#当传的是format字符串就转换成Date类型
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+
