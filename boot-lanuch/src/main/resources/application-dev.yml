@@ -1,0 +1,55 @@
+server:
+  port: 8888
+
+#当传的是format字符串就转换成Date类型
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  #数据库配置
+#  datasource:
+#    primary:
+#      username: root
+#      password: 123456
+#      #多数据源的时候，这里不是url,而是jdbc-url
+#      jdbc-url: jdbc:mysql://localhost:3306/user_db?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+#      driver-class-name: com.mysql.jdbc.Driver #动力5及5版本以下，配置此
+#    secondary:
+#      username: root
+#      password: 123456
+#      jdbc-url: jdbc:mysql://localhost:3306/user_db2?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+#      driver-class-name: com.mysql.jdbc.Driver #动力5及5版本以下，配置此
+
+#采用有分布事事务管理的数据源
+primarydb:
+  uniqueResourceName: primary
+  #xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource #高版本mysql的这个类在com.mysql.cj.jdbc下
+  xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource #这是mysql5.X
+  xaProperties:
+    url: jdbc:mysql://localhost:3306/user_db?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    user: root
+    password: 123456
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: SELECT 1 from dual #由于采用HikiriCP,用于检测数据库连接是否存活
+
+secondarydb:
+  uniqueResourceName: secondary
+  xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+  xaProperties:
+    url: jdbc:mysql://localhost:3306/user_db2?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    user: root
+    password: 123456
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: SELECT 1 from dual #由于采用HikiriCP,用于检测数据库连接是否存活
+
+
+#配置密钥,一般不会放在这里，不安全，其它人通过配置就能进修密钥了
+jasypt:
+  encryptor:
+    password: 123456
+
+

@@ -1,0 +1,41 @@
+server:
+  port: 8889
+
+#当传的是format字符串就转换成Date类型
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  datasource:
+    primary:
+      url: jdbc:mysql://localhost:3306/user_db?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver #动力5及5版本以下，配置此
+    secondary:
+      url: jdbc:mysql://localhost:3306/user_db2?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver #动力5及5版本以下，配置此
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      #ddl-auto: validate #实体类与表结构不一样时，抛异常，不会创建表,需要创建的时候改为create
+      ddl-auto: validate
+    database: mysql
+    #显示执行SQL
+    show-sql: true
+  jta:      #jtp+jpa
+    atomikos:
+      datasource:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
+      connectionfactory:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
+#配置密钥,一般不会放在这里，不安全，其它人通过配置就能进修密钥了
+jasypt:
+  encryptor:
+    password: 123456
+

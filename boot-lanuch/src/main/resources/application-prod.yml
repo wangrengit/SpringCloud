@@ -1,0 +1,25 @@
+server:
+  port: 8899
+
+
+
+#当传的是format字符串就转换成Date类型
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_db?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver #动力5及5版本以下，配置此
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#    hibernate:
+#      ddl-auto: validate
+#    database: mysql
+#    #显示执行SQL
+#    show-sql: true
+
+

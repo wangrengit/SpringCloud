@@ -33,6 +33,13 @@
       <module>cloudalibaba-provider-payment9002</module>
       <module>cloudalibaba-consumer-nacos-order83</module>
       <module>cloudalibaba-config-nacos-client3377</module>
+      <module>cloudalibaba-sentinel-service8401</module>
+      <module>cloudalibaba-provider-payment9003</module>
+    <module>cloudalibaba-provider-payment9004</module>
+      <module>cloudalibaba-consumer-nacos-order84</module>
+      <module>seata-order-service2001</module>
+      <module>seata-storage-service2002</module>
+      <module>seata-account-service2003</module>
   </modules>
   <packaging>pom</packaging>
   <name>Maven</name>
@@ -72,6 +79,9 @@
     <zipkin-version>2.2.2.RELEASE</zipkin-version>
     <nacos-version>2.1.0.RELEASE</nacos-version>
     <nacos-config-version>2.1.0.RELEASE</nacos-config-version>
+    <sentinel-version>2.2.1.RELEASE</sentinel-version>
+    <sentinel-datasource-nacos-version>1.8.0</sentinel-datasource-nacos-version>
+
 
   </properties>
 
@@ -102,6 +112,10 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+
+      <!--以下的所有引入都是自定义的，如果不自定义也可以使用上面三个依赖管理,上面三个已经包含了大部分依赖管理 -->
+
+
       <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
@@ -142,11 +156,13 @@
         <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         <version>${consul-discovery.version}</version>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-openfeign</artifactId>
         <version>${openfeign-version}</version>
       </dependency>
+      -->
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
@@ -195,8 +211,20 @@
         <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         <version>${nacos-config-version}</version>
       </dependency>
+      <!-- sentinel -->
+      <!--
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        <version>${sentinel-version}</version>
+      </dependency>
 
-
+      <dependency>
+        <groupId>com.alibaba.csp</groupId>
+        <artifactId>sentinel-datasource-nacos</artifactId>
+        <version>${sentinel-datasource-nacos-version}</version>
+      </dependency>
+     -->
     </dependencies>
 
   </dependencyManagement>

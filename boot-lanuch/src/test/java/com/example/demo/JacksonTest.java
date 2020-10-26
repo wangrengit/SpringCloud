@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.model.Article;
+import com.example.demo.model.ArticleVO;
 import com.example.demo.model.Reader;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,13 +22,13 @@ public class JacksonTest {
      readerList.add(new Reader("kobe",21));
      readerList.add(new Reader("james",20));
 
-     Article article=new Article(1L,"zimug","spring boot从青铜到王者",new Date(),"t1",readerList);
+        ArticleVO article=new ArticleVO(1L,"zimug","spring boot从青铜到王者",new Date(),"t1",readerList);
 //      json转string
      String str=mapper.writeValueAsString(article);
      System.out.println(str);
 //     String转Json
-     Article at=mapper.readValue("{\"id\":1,\"author\":\"zimug\",\"content\":\"spring boot从青铜到王者\",\"createTime\":\"2020/10/21 09:32:03\",\"title\":\"t1\",\"readers\":[{\"name\":\"kobe\",\"age\":21},{\"name\":\"james\",\"age\":20}]}",
-             Article.class);
+        ArticleVO at=mapper.readValue("{\"id\":1,\"author\":\"zimug\",\"content\":\"spring boot从青铜到王者\",\"createTime\":\"2020/10/21 09:32:03\",\"title\":\"t1\",\"readers\":[{\"name\":\"kobe\",\"age\":21},{\"name\":\"james\",\"age\":20}]}",
+                ArticleVO.class);
      System.out.println(at);
 
 

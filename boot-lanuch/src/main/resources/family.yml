@@ -1,6 +1,6 @@
 family:
   #family-name = familyName = family_name 三种写法是同一个
-  family-name: "happy family"
+  family-name: ENC(xt3ZlXkl6hohVZkOUy42gRIyvClfGxq9) #加密后的值需要用ENC括起来
   father:
     name: zimug
     #age: ${random.int} #随机数占位符，取整数随机数,当然还有其它的
@@ -10,7 +10,8 @@ family:
       - lovely
       - ailice
   child:
-    name: ${family.family-name:zimug2} #取当前配置文件中的family-name的值，没有就用zimug2
+    #name: ${family.family-name:zimug2} #取当前配置文件中的family-name的值，没有就用zimug2
+    name: xiaoming
     age: 5
     friends:   #包含了两个对象
       - hobby: football   #第一个对象

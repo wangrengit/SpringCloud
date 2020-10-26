@@ -1,9 +1,12 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Article;
-import org.springframework.stereotype.Service;
+import com.example.demo.model.ArticleVO;
 
 
 public interface ArticleService {
-    String saveArticle(Article article);
+    String saveArticle(ArticleVO article);
+    String updArticle(ArticleVO article);
+    String delArticle(Long id);
+    void findById(Long id);
+    void findAll();
 }

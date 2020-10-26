@@ -22,6 +22,9 @@ mybatis:
   type-aliases-package: com.atguigu.springboot.entities
 
 
+
+
+
 eureka:
   client:
     #表示是否注册中心注册自己,默认为true

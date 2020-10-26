@@ -1,7 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.controller.ArticleController;
-import com.example.demo.model.Article;
+import com.example.demo.model.ArticleVO;
 import com.example.demo.service.ArticleService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -9,14 +9,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpMethod;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import javax.annotation.Resource;
 
@@ -49,7 +47,7 @@ public class ArticleRestControllerTest2 {
                 "\"readers\":[{\"name\":\"kobe\",\"age\":21},{\"name\":\"james\",\"age\":20}]}";
 
         ObjectMapper objectMapper=new ObjectMapper();
-        Article article=objectMapper.readValue(str,Article.class);
+        ArticleVO article=objectMapper.readValue(str,ArticleVO.class);
 
         //打桩,当Controller层中有执行articleService.saveArticle(article)时直接就返回“OK”
         when(articleService.saveArticle(article)).thenReturn("OK");
