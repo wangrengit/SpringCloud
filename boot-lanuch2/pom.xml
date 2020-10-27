@@ -59,12 +59,12 @@
 			<artifactId>dozer-spring-boot-starter</artifactId>
 			<version>6.2.0</version>
 		</dependency>
-		<!--分布式事务管理依赖-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-jta-atomikos</artifactId>-->
-<!--		</dependency>-->
-		<!--OpenAPI3.0接口规范-->
+<!--		分布式事务管理依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jta-atomikos</artifactId>
+		</dependency>
+<!--		OpenAPI3.0接口规范-->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
