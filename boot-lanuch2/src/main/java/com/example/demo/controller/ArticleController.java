@@ -33,7 +33,6 @@ public class ArticleController {
 //        log.info("article="+article);
 //        articleService.findById(id);
         AjaxResponse ajaxResponse=new AjaxResponse(true,200,"查询成功",null);
-        System.out.println("创建分支");
         return ajaxResponse;
     }
 }
