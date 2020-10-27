@@ -20,7 +20,7 @@ public class ArticleController {
     @RequestMapping(value = "/articles",method = RequestMethod.POST)
     public AjaxResponse addArticle(@RequestBody ArticleVO articleVO){
         System.out.println("--------------------------------------");
-//        articleService.insert(articleVO);
+        articleService.insert(articleVO);
         AjaxResponse ajaxResponse=new AjaxResponse(true,200,"查询成功",null);
         return ajaxResponse;
     }

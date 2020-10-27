@@ -13,7 +13,7 @@ import javax.transaction.SystemException;
 import javax.transaction.TransactionManager;
 import javax.transaction.UserTransaction;
 
-//@Configuration
+@Configuration
 @EnableTransactionManagement
 public class XATransactionManagerConfig {
 

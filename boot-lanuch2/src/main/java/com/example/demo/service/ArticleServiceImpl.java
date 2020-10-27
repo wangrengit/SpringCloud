@@ -16,22 +16,22 @@ public class ArticleServiceImpl implements ArticleService{
     @Resource
     private Mapper dozerMapper;
 
-//    @Resource
-//    private ArticleMapper articleMapper;
-//
-//    @Resource
-//    private MessageMapper messageMapper;
+    @Resource
+    private ArticleMapper articleMapper;
+
+    @Resource
+    private MessageMapper messageMapper;
 
     @Override
     @Transactional
     public void insert(ArticleVO articleVO) {
-//     Article articlePO=dozerMapper.map(articleVO,Article.class);
-//     articleMapper.insert(articlePO);
-//        Message message=Message.builder()
-//                .name("wang")
-//                .content("wwwww")
-//                .build();
-//     messageMapper.insert(message);
-     int i=10/0; //模拟异常
+     Article articlePO=dozerMapper.map(articleVO,Article.class);
+     articleMapper.insert(articlePO);
+        Message message=Message.builder()
+                .name("wang")
+                .content("wwwww")
+                .build();
+     messageMapper.insert(message);
+//     int i=10/0; //模拟异常
     }
 }

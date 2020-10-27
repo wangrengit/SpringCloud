@@ -17,7 +17,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 import java.io.IOException;
 
-//@Configuration
+@Configuration
 @MapperScan(basePackages = "com.example.demo.generator.testdb2",
         sqlSessionTemplateRef = "secondarySqlSessionTemplate"
 )
