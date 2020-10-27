@@ -1,0 +1,21 @@
+server:
+  port: 8899
+
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver #动力5及5版本以下，配置此
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/user_db?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      #ddl-auto: validate #实体类与表结构不一样时，抛异常，不会创建表,需要创建的时候改为create
+      ddl-auto: validate
+    database: mysql
+    #显示执行SQL
+    show-sql: true
+
+

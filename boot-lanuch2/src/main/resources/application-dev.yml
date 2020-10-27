@@ -1,0 +1,53 @@
+server:
+  port: 8889
+
+#当传的是format字符串就转换成Date类型
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+#普通多数据源采用的配置
+#  datasource:
+#    primary:
+#       jdbc-url: jdbc:mysql://localhost:3306/user_db?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+#       username: root
+#       password: 123456
+#       driver-class-name: com.mysql.jdbc.Driver #动力5及5版本以下，配置此
+#    secondary: #添加多数据源
+#      jdbc-url: jdbc:mysql://localhost:3306/user_db2?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+#      username: root
+#      password: 123456
+#      driver-class-name: com.mysql.jdbc.Driver #动力5及5版本以下，配置此
+
+#Mybatis配置信息
+mybatis:
+  mapper-locations: classpath:generator/*.xml
+logging:
+  level:
+    com.example.demo: debug
+
+#采用有分布事事务管理的数据源
+primarydb:
+  uniqueResourceName: primary
+  #xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource #高版本mysql的这个类在com.mysql.cj.jdbc下
+  xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource #这是mysql5.X
+  xaProperties:
+    url: jdbc:mysql://localhost:3306/user_db?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    user: root
+    password: 123456
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: SELECT 1 from dual #由于采用HikiriCP,用于检测数据库连接是否存活
+
+secondarydb:
+  uniqueResourceName: secondary
+  xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+  xaProperties:
+    url: jdbc:mysql://localhost:3306/user_db2?useUnicode=true&characterEncoding=utf-8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    user: root
+    password: 123456
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: SELECT 1 from dual #由于采用HikiriCP,用于检测数据库连接是否存活
